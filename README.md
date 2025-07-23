@@ -1,5 +1,4 @@
 [![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet)
-
 ---
 I specialize in web development with a focus on HTML, JavaScript, and interactive game creation. Below are the key skills I work with:
 
