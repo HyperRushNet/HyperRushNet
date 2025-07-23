@@ -14,6 +14,6 @@ I specialize in web development, focusing on HTML, JavaScript, and interactive g
 
 ## Technical Proficiencies
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+), WebRTC, React
-- **Backend**: Node.js, Express
+- **Backend**: Node.js
 - **Game Development**: Phaser.js, Three.js
 - **Version Control**: GitHub
