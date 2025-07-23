@@ -1,6 +1,7 @@
 [![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet)
 ---
-Hey there! ;)
+Hey there! ;)<br>
+
 I specialize in web development, focusing on HTML, JavaScript, and interactive game creation. 
 
 ## Skills & Interests
