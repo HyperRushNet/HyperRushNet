@@ -1,5 +1,6 @@
 [![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet)
 ---
+Hey there! ;)
 I specialize in web development, focusing on HTML, JavaScript, and interactive game creation. 
 
 ## Skills & Interests
@@ -14,5 +15,4 @@ I specialize in web development, focusing on HTML, JavaScript, and interactive g
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+), WebRTC, React
 - **Backend**: Node.js, Express
 - **Game Development**: Phaser.js, Three.js
-- **Version Control**: Git/GitHub
----
+- **Version Control**: GitHub
