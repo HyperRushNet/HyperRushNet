@@ -16,6 +16,3 @@ I specialize in web development, focusing on HTML, JavaScript, and interactive g
 - **Game Development**: Phaser.js, Three.js
 - **Version Control**: Git/GitHub
 
-## Contact
-- **Email**: [hyperrushnetwork@gmail.com](mailto:hyperrushnetwork@gmail.com)
-- **Website**: [hyperrushnet.github.io](https://hyperrushnet.github.io)
