@@ -1,4 +1,4 @@
-[![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet)
+[![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet/hyperrushnet.github.io)
 
 # Profile of HyperRushNet
 
