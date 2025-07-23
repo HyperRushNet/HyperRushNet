@@ -1,4 +1,6 @@
-![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)
+[![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet)
+
+# Profile of HyperRushNet
 
 Welcome to my profile! I am passionate about web development, particularly in creating HTML-based websites, working with JavaScript, and building interactive games. Below are some of my key skills and preferences.
 
