@@ -1,4 +1,4 @@
-[![HyperRushNet Banner](https://hyperrushnet.github.io/assets/logo.png)](https://github.com/HyperRushNet/hyperrushnet.github.io)
+[![HyperRushNet Banner](https://hyperrushnet.github.io/assets/images/logo.png)](https://github.com/HyperRushNet/hyperrushnet.github.io)
 ---
 Hey there! ;)<br>
 
