@@ -1,137 +1,36 @@
-Natuurlijk! Hier is een voorbeeld van een stijlvolle HTML-pagina die je als basis kunt gebruiken. Het combineert een strakke layout, mooie kleuren en een beetje typografie om het er aantrekkelijk uit te laten zien. Voel je vrij om het verder aan te passen naar jouw wensen!
-
-```html
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mooie Pagina</title>
-    <style>
-        /* Reset en basisstijl */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #ece9e6, #ffffff);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #4A90E2;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-
-        header h1 {
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-
-        nav {
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-            background-color: #f7f7f7;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        section h2 {
-            margin-bottom: 15px;
-            color: #4A90E2;
-            font-size: 2em;
-        }
-
-        p {
-            font-size: 1.1em;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 50px;
-        }
-
-        /* Responsive design */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Something Fun</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+  }
+  #magicButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Welkom op mijn Mooie Pagina</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Over</a>
-            <a href="#">Diensten</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
-
-    <main>
-        <section>
-            <h2>Introductie</h2>
-            <p>Welkom! Dit is een voorbeeldpagina die mooi en modern is ontworpen. Je kunt hier je eigen inhoud toevoegen en het ontwerpen aanpassen zoals jij dat wilt.</p>
-        </section>
-        <section>
-            <h2>Wat wij doen</h2>
-            <p>Wij bieden geweldige oplossingen voor jouw behoeften. Of het nu gaat om design, development of advies, wij staan klaar om je te helpen!</p>
-        </section>
-        <section>
-            <h2>Contact</h2>
-            <p>Heb je vragen? Neem gerust contact met ons op via ons contactformulier of bel ons op 012-3456789.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Mijn Mooie Pagina. Alle rechten voorbehouden.</p>
-    </footer>
+<button id="magicButton">Click me!</button>
+<div id="result"></div>
+<script>
+  document.getElementById("magicButton").addEventListener("click", function() {
+    const responses = ["You found the secret!", "Well done!", "Here's a surprise!", "Keep exploring!"];
+    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    document.getElementById("result").innerText = randomResponse;
+  });
+</script>
 </body>
 </html>
-```
-
-Wil je dat ik een specifiek thema, kleurenschema of extra functies toevoeg?
-
-
-
----
-
-**Sponsor**
-Op zoek naar een manier om een mooie webpagina te maken? Bescherm je investering in een goede nachtrust en begin met een solide basis! [Bargoose Home Textiles](https://pollinations.ai/redirect-nexad/CPDJIE4T) biedt superieure bed beschermingsoplossingen die je kunt gebruiken als inspiratie voor je HTML code. Denk aan waterdichte matrasbeschermers en stretch knit boxspring beschermers; Bargoose staat voor kwaliteit en bescherming tegen bed bugs, lekken en allergenen.
