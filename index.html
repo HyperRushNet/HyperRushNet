@@ -1,184 +1,139 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Random Game Pagina</title>
+<title>My Gamesite</title>
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #222;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    min-height: 100vh;
-  }
-  header {
-    padding: 20px;
-    font-size: 2em;
-  }
-  canvas {
-    border: 2px solid #fff;
-    background-color: #000;
-  }
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-  }
-  button:hover {
-    background-color: #666;
-  }
+body {
+ font-family: Arial, sans-serif;
+ background-color: #f0f0f0;
+ margin: 0;
+ padding: 0;
+}
+header {
+ background-color: #333;
+ color: white;
+ padding: 20px;
+ text-align: center;
+}
+nav {
+ display: flex;
+ justify-content: center;
+ background-color: #444;
+}
+nav a {
+ color: white;
+ padding: 14px 20px;
+ text-decoration: none;
+ text-align: center;
+}
+nav a:hover {
+ background-color: #555;
+}
+main {
+ padding: 20px;
+}
+section {
+ margin-bottom: 40px;
+}
+h2 {
+ color: #333;
+}
+.game-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 20px;
+}
+.game-card {
+ background-color: white;
+ border-radius: 8px;
+ overflow: hidden;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.game-image {
+ width: 100%;
+ height: 150px;
+ object-fit: cover;
+}
+.game-title {
+ padding: 10px;
+ font-size: 1.2em;
+ font-weight: bold;
+}
+footer {
+ background-color: #333;
+ color: white;
+ text-align: center;
+ padding: 10px;
+ position: fixed;
+ bottom: 0;
+ width: 100%;
+}
 </style>
 </head>
 <body>
-<header>Mini Collectie Game</header>
-<canvas id="gameCanvas" width="600" height="400"></canvas>
-<button id="restartBtn">Herstart</button>
-<script>
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-const restartBtn = document.getElementById('restartBtn');
-
-let player = { x: 50, y: 200, size: 20, speed: 5, color: 'lime' };
-let coins = [];
-const coinCount = 5;
-let score = 0;
-let keys = {};
-
-function init() {
-  player = { x: 50, y: 200, size: 20, speed: 5, color: 'lime' };
-  coins = [];
-  for (let i = 0; i < coinCount; i++) {
-    coins.push({
-      x: Math.random() * (canvas.width - 20) + 10,
-      y: Math.random() * (canvas.height - 20) + 10,
-      size: 10,
-      color: 'yellow'
-    });
-  }
-  score = 0;
-}
-
-function update() {
-  if (keys['ArrowUp']) player.y -= player.speed;
-  if (keys['ArrowDown']) player.y += player.speed;
-  if (keys['ArrowLeft']) player.x -= player.speed;
-  if (keys['ArrowRight']) player.x += player.speed;
-
-  // Grenzen check
-  if (player.x < 0) player.x = 0;
-  if (player.y < 0) player.y = 0;
-  if (player.x > canvas.width - player.size) player.x = canvas.width - player.size;
-  if (player.y > canvas.height - player.size) player.y = canvas.height - player.size;
-
-  // Coin verzameling
-  coins = coins.filter(coin => {
-    const dx = coin.x - (player.x + player.size/2);
-    const dy = coin.y - (player.y + player.size/2);
-    const distance = Math.hypot(dx, dy);
-    if (distance < coin.size + player.size/2) {
-      score++;
-      return false;
-    }
-    return true;
-  });
-}
-
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = player.color;
-  ctx.fillRect(player.x, player.y, player.size, player.size);
-  coins.forEach(coin => {
-    ctx.fillStyle = coin.color;
-    ctx.beginPath();
-    ctx.arc(coin.x, coin.y, coin.size, 0, Math.PI * 2);
-    ctx.fill();
-  });
-  ctx.fillStyle = 'white';
-  ctx.font = '20px Arial';
-  ctx.fillText('Score: ' + score, 10, 30);
-}
-
-function gameLoop() {
-  update();
-  draw();
-  requestAnimationFrame(gameLoop);
-}
-
-document.addEventListener('keydown', (e) => { keys[e.key] = true; });
-document.addEventListener('keyup', (e) => { keys[e.key] = false; });
-
-restartBtn.addEventListener('click', () => {
-  init();
-});
-
-init();
-gameLoop();
-</script>
+<header>
+<h1>My Gamesite</h1>
+</header>
+<nav>
+<a href="#latest">Latest Games</a>
+<a href="#categories">Categories</a>
+<a href="#top">Top Rated</a>
+<a href="#about">About</a>
+</nav>
+<main>
+<section id="latest">
+<h2>Latest Games</h2>
+<div class="game-grid">
+<div class="game-card">
+<img src="https://via.placeholder.com/300x150?text=Game+1" alt="Game 1" class="game-image" />
+<div class="game-title">Adventure Quest</div>
+</div>
+<div class="game-card">
+<img src="https://via.placeholder.com/300x150?text=Game+2" alt="Game 2" class="game-image" />
+<div class="game-title">Speed Racer</div>
+</div>
+<div class="game-card">
+<img src="https://via.placeholder.com/300x150?text=Game+3" alt="Game 3" class="game-image" />
+<div class="game-title">Puzzle Master</div>
+</div>
+</div>
+</section>
+<section id="categories">
+<h2>Categories</h2>
+<ul>
+<li>Action</li>
+<li>Adventure</li>
+<li>Puzzle</li>
+<li>RPG</li>
+<li>Sports</li>
+</ul>
+</section>
+<section id="top">
+<h2>Top Rated Games</h2>
+<div class="game-grid">
+<div class="game-card">
+<img src="https://via.placeholder.com/300x150?text=Game+4" alt="Game 4" class="game-image" />
+<div class="game-title">Legend of Heroes</div>
+</div>
+<div class="game-card">
+<img src="https://via.placeholder.com/300x150?text=Game+5" alt="Game 5" class="game-image" />
+<div class="game-title">Battle Arena</div>
+</div>
+<div class="game-card">
+<img src="https://via.placeholder.com/300x150?text=Game+6" alt="Game 6" class="game-image" />
+<div class="game-title">Mystery Island</div>
+</div>
+</div>
+</section>
+<section id="about">
+<h2>About Us</h2>
+<p>Welcome to My Gamesite! We showcase the latest and greatest in gaming. Discover new games, read reviews, and join our community of gamers.</p>
+</section>
+</main>
+<footer>
+<p>&copy; 2024 My Gamesite</p>
+</footer>
 </body>
 </html>
-
-
-
----
-
-**Sponsor**
-Random Game
-
-body {
-  font-family: sans-serif;
-  text-align: center;
-  padding-top: 50px;
-}
-#game-container {
-  width: 400px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  padding: 20px;
-}
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-
-
-
-Welcome to the Random Game!
-
-
-  Guess the Number!
-  I'm thinking of a number between 1 and 10.
-  
-  Submit Guess
-  
-
-
-
-  const randomNumber = Math.floor(Math.random() * 10) + 1;
-
-  function checkGuess() {
-    const guess = document.getElementById("guess").value;
-    const message = document.getElementById("message");
-
-    if (guess == randomNumber) {
-      message.textContent = "Congratulations! You guessed it!";
-      message.style.color = "green";
-    } else {
-      message.textContent = "Sorry, try again! The number was " + randomNumber + ".";
-      message.style.color = "red";
-    }
-  }
-
-
-Enjoy playing! Make sure you're comfortable. For ultimate comfort and protection, check out [Bargoose Home Textiles](https://pollinations.ai/redirect-nexad/AUxRlS1V) for waterproof mattress pads, ensuring a good night's rest after gaming!
