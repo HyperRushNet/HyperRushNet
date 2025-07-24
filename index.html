@@ -3,62 +3,182 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mooie HTML Pagina</title>
+<title>Random Game Pagina</title>
 <style>
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    min-height: 100vh;
   }
   header {
-    background-color: rgba(255,255,255,0.8);
     padding: 20px;
-    text-align: center;
+    font-size: 2em;
   }
-  h1 {
-    margin: 0;
-    font-size: 2.5em;
+  canvas {
+    border: 2px solid #fff;
+    background-color: #000;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #444;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 5px;
   }
-  main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  }
-  p {
-    font-size: 1.2em;
-    line-height: 1.6;
-  }
-  footer {
-    text-align: center;
-    padding: 15px;
-    font-size: 0.9em;
-    color: #555;
-  }
-  a {
-    color: #3366cc;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
+  button:hover {
+    background-color: #666;
   }
 </style>
 </head>
 <body>
-<header>
-<h1>Welkom op mijn mooie pagina</h1>
-</header>
-<main>
-<p>Deze pagina is een voorbeeld van een esthetisch prettige HTML pagina met een vriendelijke look en feel. Voeg hier je eigen inhoud toe en personaliseert het zoals jij wilt!</p>
-</main>
-<footer>
-<p>© 2024 Mooie Pagina. Alle rechten voorbehouden.</p>
-</footer>
+<header>Mini Collectie Game</header>
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+<button id="restartBtn">Herstart</button>
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const restartBtn = document.getElementById('restartBtn');
+
+let player = { x: 50, y: 200, size: 20, speed: 5, color: 'lime' };
+let coins = [];
+const coinCount = 5;
+let score = 0;
+let keys = {};
+
+function init() {
+  player = { x: 50, y: 200, size: 20, speed: 5, color: 'lime' };
+  coins = [];
+  for (let i = 0; i < coinCount; i++) {
+    coins.push({
+      x: Math.random() * (canvas.width - 20) + 10,
+      y: Math.random() * (canvas.height - 20) + 10,
+      size: 10,
+      color: 'yellow'
+    });
+  }
+  score = 0;
+}
+
+function update() {
+  if (keys['ArrowUp']) player.y -= player.speed;
+  if (keys['ArrowDown']) player.y += player.speed;
+  if (keys['ArrowLeft']) player.x -= player.speed;
+  if (keys['ArrowRight']) player.x += player.speed;
+
+  // Grenzen check
+  if (player.x < 0) player.x = 0;
+  if (player.y < 0) player.y = 0;
+  if (player.x > canvas.width - player.size) player.x = canvas.width - player.size;
+  if (player.y > canvas.height - player.size) player.y = canvas.height - player.size;
+
+  // Coin verzameling
+  coins = coins.filter(coin => {
+    const dx = coin.x - (player.x + player.size/2);
+    const dy = coin.y - (player.y + player.size/2);
+    const distance = Math.hypot(dx, dy);
+    if (distance < coin.size + player.size/2) {
+      score++;
+      return false;
+    }
+    return true;
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = player.color;
+  ctx.fillRect(player.x, player.y, player.size, player.size);
+  coins.forEach(coin => {
+    ctx.fillStyle = coin.color;
+    ctx.beginPath();
+    ctx.arc(coin.x, coin.y, coin.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.fillStyle = 'white';
+  ctx.font = '20px Arial';
+  ctx.fillText('Score: ' + score, 10, 30);
+}
+
+function gameLoop() {
+  update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+
+document.addEventListener('keydown', (e) => { keys[e.key] = true; });
+document.addEventListener('keyup', (e) => { keys[e.key] = false; });
+
+restartBtn.addEventListener('click', () => {
+  init();
+});
+
+init();
+gameLoop();
+</script>
 </body>
 </html>
+
+
+
+---
+
+**Sponsor**
+Random Game
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+#game-container {
+  width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
+Welcome to the Random Game!
+
+
+  Guess the Number!
+  I'm thinking of a number between 1 and 10.
+  
+  Submit Guess
+  
+
+
+
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+  function checkGuess() {
+    const guess = document.getElementById("guess").value;
+    const message = document.getElementById("message");
+
+    if (guess == randomNumber) {
+      message.textContent = "Congratulations! You guessed it!";
+      message.style.color = "green";
+    } else {
+      message.textContent = "Sorry, try again! The number was " + randomNumber + ".";
+      message.style.color = "red";
+    }
+  }
+
+
+Enjoy playing! Make sure you're comfortable. For ultimate comfort and protection, check out [Bargoose Home Textiles](https://pollinations.ai/redirect-nexad/AUxRlS1V) for waterproof mattress pads, ensuring a good night's rest after gaming!
