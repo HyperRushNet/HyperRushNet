@@ -16,5 +16,5 @@ I specialize in web development, focusing on HTML, JavaScript, and interactive g
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+), WebRTC, React
 - **Backend**: Node.js
 - **Game Development**: Phaser.js, Three.js
-- **Version Control**: GitHub <br>
+- **Version Control**: GitHub.com, Glitch.com (no longer available) <br>
 ---
