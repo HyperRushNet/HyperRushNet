@@ -1,5 +1,3 @@
-Sure, here's a simple HTML code for a basic personal profile page. It includes a header, a navigation bar, a main section with a profile picture, some personal information, and a footer.
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +35,16 @@ Sure, here's a simple HTML code for a basic personal profile page. It includes a
         }
         .main {
             padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .profile-pic {
             border-radius: 50%;
             width: 150px;
             height: 150px;
             object-fit: cover;
+            display: block;
+            margin: 0 auto 20px;
         }
         footer {
             background-color: #333;
@@ -52,6 +54,13 @@ Sure, here's a simple HTML code for a basic personal profile page. It includes a
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
         }
     </style>
 </head>
@@ -66,11 +75,32 @@ Sure, here's a simple HTML code for a basic personal profile page. It includes a
     </nav>
     <div class="main">
         <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-        <h2>John Doe</h2>
-        <p><strong>Age:</strong> 30</p>
-        <p><strong>Occupation:</strong> Software Developer</p>
-        <p><strong>Location:</strong> New York, USA</p>
-        <p><strong>About Me:</strong> I am a passionate software developer with experience in various programming languages and technologies. I enjoy solving complex problems and building innovative solutions.</p>
+        <div class="section" id="about">
+            <h2>About Me</h2>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Age:</strong> 30</p>
+            <p><strong>Occupation:</strong> Software Developer</p>
+            <p><strong>Location:</strong> New York, USA</p>
+            <p>I am a passionate software developer with experience in various programming languages and technologies. I enjoy solving complex problems and building innovative solutions.</p>
+        </div>
+        <div class="section" id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>HTML/CSS</li>
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+        </div>
+        <div class="section" id="contact">
+            <h2>Contact</h2>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a></p>
+        </div>
     </div>
     <footer>
         &copy; 2023 John Doe. All rights reserved.
@@ -78,5 +108,3 @@ Sure, here's a simple HTML code for a basic personal profile page. It includes a
 </body>
 </html>
 ```
-
-This code creates a clean and simple profile page. You can customize the content and styles as needed. If you want to add more sections or features, just let me know!
