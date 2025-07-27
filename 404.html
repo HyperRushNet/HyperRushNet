@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>
   <meta charset="UTF-8" />
   <title>404 Not Found - The HyperRush Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,8 +57,7 @@
       left: 0;
       color: var(--shadow);
       filter: blur(1.5vmin);
-      transform: scale(1.05) translate3d(0, 12%, -10vmin)
-        translate(calc((var(--swing-x) * 0.05) * 1%), calc((var(--swing-y) * 0.05) * 1%));
+      transform: scale(1.05) translate3d(0, 12%, -10vmin) translate(calc((var(--swing-x) * 0.05) * 1%), calc((var(--swing-y) * 0.05) * 1%));
     }
 
     a {
@@ -72,6 +70,12 @@
       font-size: 0.875rem;
       letter-spacing: 0.05rem;
       display: inline-block;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a:hover {
+      background: var(--button-color);
+      color: var(--button);
     }
 
     p {
@@ -128,22 +132,19 @@
     <p>We're fairly sure that page used to be here, but seems to have gone missing. We do apologise on its behalf.</p>
     <a id="home-button" href="/" target="_self" rel="noreferrer noopener">Home</a>
   </div>
-  
 
   <script>
-    // Verberg knop als in iframe
     if (window.self !== window.top) {
       const btn = document.getElementById('home-button');
       if (btn) btn.style.display = 'none';
     }
 
-    // Swing-animatie zonder @property
     const root = document.documentElement;
     let start = null;
 
     function animateSwing(timestamp) {
       if (!start) start = timestamp;
-      const t = (timestamp - start) / 1000; // seconden
+      const t = (timestamp - start) / 1000;
 
       const freq = 0.30;
       const amp = 100;
@@ -161,4 +162,3 @@
   </script>
 </body>
 </html>
- 
